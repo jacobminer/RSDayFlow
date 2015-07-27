@@ -70,6 +70,7 @@
 - (void)commonInitializer
 {
     self.backgroundColor = [self selfBackgroundColor];
+    self.contentView.backgroundColor = [self selfBackgroundColor];
     
     [self addSubview:self.selectedDayImageView];
     [self addSubview:self.overlayImageView];

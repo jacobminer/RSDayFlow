@@ -627,7 +627,7 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     cell.date = cellPickerDate;
     cell.dateLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)(cellPickerDate.day)];
     
-    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     
     cell.notThisMonth = !((firstDayPickerDate.year == cellPickerDate.year) && (firstDayPickerDate.month == cellPickerDate.month));
     if (!cell.isNotThisMonth) {
@@ -647,7 +647,8 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
         }
         
         if ([self.dataSource respondsToSelector:@selector(datePickerView:backgroundColorForDate:)]) {
-            cell.backgroundColor = [self.dataSource datePickerView:self backgroundColorForDate:cellDate];
+            UIColor *color = [self.dataSource datePickerView:self backgroundColorForDate:cellDate];
+            cell.contentView.backgroundColor = color;
         }
         
         cell.today = ([cellDate compare:_today] == NSOrderedSame) ? YES : NO;
