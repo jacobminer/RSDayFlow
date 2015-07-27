@@ -41,17 +41,6 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar;
 
-
-/**
- Designated initializer. Initializes and returns a newly allocated view object with the specified frame rectangle and the specified calendar.
- 
- @param frame The frame rectangle for the view, measured in points.
- @param calendar The calendar for the date picker view.
- @param startDate First selectable date
- @param endDate Last selectable date
- */
-- (instancetype)initWithFrame:(CGRect)frame calendar:(NSCalendar *)calendar startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
-
 ///-----------------------------
 /// @name Accessing the Delegate
 ///-----------------------------
@@ -265,5 +254,14 @@
  @return The mark image for the specified date.
  */
 - (UIImage *)datePickerView:(RSDFDatePickerView *)view markImageForDate:(NSDate *)date;
+
+/**
+ Asks the data source about the background color for the specified date.
+ 
+ @param view The date picker view object that is asking about the background color for the specified date.
+ 
+ @return The background color for the specified date.
+ */
+- (UIColor *)datePickerView:(RSDFDatePickerView *)view backgroundColorForDate:(NSDate *)date;
 
 @end
