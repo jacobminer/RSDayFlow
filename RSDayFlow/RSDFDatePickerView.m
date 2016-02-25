@@ -293,7 +293,8 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
     if (![self.selectedDate isEqual:date]) {
         if (self.selectedDate &&
             [self.selectedDate compare:[self dateFromPickerDate:self.fromDate]] != NSOrderedAscending &&
-            [self.selectedDate compare:[self dateFromPickerDate:self.toDate]] != NSOrderedDescending) {
+            [self.selectedDate compare:[self dateFromPickerDate:self.toDate]] == NSOrderedDescending) {
+
             NSIndexPath *previousSelectedCellIndexPath = [self indexPathForDate:self.selectedDate];
             [self.collectionView deselectItemAtIndexPath:previousSelectedCellIndexPath animated:NO];
             UICollectionViewCell *previousSelectedCell = [self.collectionView cellForItemAtIndexPath:previousSelectedCellIndexPath];
@@ -306,7 +307,8 @@ static NSString * const RSDFDatePickerViewDayCellIdentifier = @"RSDFDatePickerVi
         
         if (self.selectedDate &&
             [self.selectedDate compare:[self dateFromPickerDate:self.fromDate]] != NSOrderedAscending &&
-            [self.selectedDate compare:[self dateFromPickerDate:self.toDate]] != NSOrderedDescending) {
+            [self.selectedDate compare:[self dateFromPickerDate:self.toDate]] == NSOrderedDescending) {
+
             NSIndexPath *indexPathForSelectedDate = [self indexPathForDate:self.selectedDate];
             [self.collectionView selectItemAtIndexPath:indexPathForSelectedDate animated:NO scrollPosition:UICollectionViewScrollPositionNone];
             UICollectionViewCell *selectedCell = [self.collectionView cellForItemAtIndexPath:indexPathForSelectedDate];
